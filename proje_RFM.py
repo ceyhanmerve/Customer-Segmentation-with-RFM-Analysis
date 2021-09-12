@@ -88,28 +88,3 @@ rfm['segment'] = rfm['RFM_SCORE'].replace(seg_map, regex=True)
 rfm.head()
 
 rfm[["segment", "Recency", "Frequency", "Monetary"]].groupby("segment").agg(["mean", "count"])
-
-##GOREV_5
-# Recency, frequency ve monetary'ye bakıldığında her üç grup için de en önemli olan segment champions segmentidir.
-#champions segmenti hem yakın zamanda alışveriş yapmıştır hem de alışveriş sıklığı yüksektir, sık sık alışveriş yapar
-#bu yüzden getirisi fazladır. Ancak champions grubundaki müşteri sayısı toplam müşterilere bakıldığında üçüncü sırada
-#yer almaktadır. İlk iki sırada hibernating ve loyal customers yer almaktadır. Loyal customers'ı champions segmentine çıkarabilmek
-#için adımlar atılmalıdır. Örneğin recency skorunu artırmak için müşterilerin satınaldığı ürünlerin farklı bir renk/modelini satışa çıkarıp
-#müşteriye "daha önce ildilendiğiniz şu ürünün mavisi stoklara girdi" gibi mesaj yoluyla müşteriler mağazaya çekilebilir.
-
-#Odaklanılması gereken diğer grup frequency ve monetary açısından ikinci sırada yer alanvcan'loose segmenti olabilir. Can't loose segmenti
-#yakın zamanda alışveriş yapmış olmasa da alışveriş yaptığında yüklü miktar harcama yapar ve sıklığı yüksektir. Örneğin
-#champions la karşılaştırıldığında champions yaklaşık 10 kat daha fazla müşteriye sahip olmasına rağmen can't loosea göre sadece 1.67 kat
-#daha fazla kazandırır, bu sebeple can't loose grubunun recency skoru artırılmaya çalışılıp loyal customers segmentine çıkarma amaçlı aksiyonlar alınmalıdır.
-#bu aşamada loyal customers segmentindeki müşteriler ile rastsal bir şekilde birebir görüşmeler yapılıp mağaza hakkındaki görüşleri alınabilir,
-#böylece hem loyal customers müşterileri mağazanın kendisine değer verdiğini düşünerek alışveriş yapma isteği ortaya çıkacaktır, hem de
-#mağaza loyal customers ın düşüncelerini öğrenip bu etmenleri can't loose segmentindeki müşteriler üzerinde uygulayarak bir üst segmente çıkarabilecektir.
-
-#At risk grubundaki müşterilerin gerekli aksiyonlar alınmazsa hibernating grubuna geçiş yapması çok olasıdır. Bu da %16 lık dilime sahip
-# olan at risk grubundaki müşterileri kaybetmek demektir. Bunu önlemek için bu gruba da öncelik verilmelidir. Mümkünse loyal customers segmentine
-#en kötü ihtimalle ise need attention segmentine çıkarılması üzerine çalışmalar yapılmalıdır. Hibernating segmentine düşmemesi için alışveriş frekansını aynı seviyede tutup
-# recency skorunu artırma üzerine çalışmalar yapılmalıdır. Müşteriler bir an önce mağazaya çekilmelidir. Bu müşteriler aynı veya benzer
-#ürünü daha uygun fiyata başka bir mağazada bulmuş olabilir, champions ile karşılaştırıldığında aynı kişi sayısına sahip olmalarına rağmen
-#frekans değeri monetary ile orantılandığında daha az para harcadığı ve dolayısıyla ürünlerin fiyatına daha çok önem verdiği görülmektedir.
-# Bu müşterilerin düzenli olarak satınaldığı belirli ürünleri pazar araştırmasına göre "şimdi şu ürünü %40 daha uygun fiyata satın alabilirsiniz"
-# gibi pazarlama teknikleri kullanılabilir.
